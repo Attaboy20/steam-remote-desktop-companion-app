@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,12 +9,13 @@ namespace MonitorSwitcher
     public class MainForm : Form
     {
         private Button switchMonitorButton;
+        private Button controllerTesterButton;
 
         public MainForm()
         {
             // Set up the form
             this.Text = "Monitor Switcher";
-            this.Size = new Size(300, 200);
+            this.Size = new Size(500, 300);
 
             // Create the button
             switchMonitorButton = new Button();
@@ -24,10 +26,31 @@ namespace MonitorSwitcher
             switchMonitorButton.Anchor = AnchorStyles.None;
             switchMonitorButton.Click += SwitchMonitorButton_Click;
 
+            
+
+            // Add xinputButton
+            controllerTesterButton = new Button();
+            controllerTesterButton.Text = "Test Controller";
+            controllerTesterButton.Size = new Size(150, 50);
+            controllerTesterButton.Location = new Point((this.ClientSize.Width - controllerTesterButton.Width) / 2,
+                                                       (this.ClientSize.Height - controllerTesterButton.Height) / 2 + 60 );
+            controllerTesterButton.Anchor = AnchorStyles.None;
+            controllerTesterButton.Click += ControllerTesterButton_Click;
+
             // Add the button to the form
             this.Controls.Add(switchMonitorButton);
+            this.Controls.Add(controllerTesterButton);
+
         }
 
+
+        private void ControllerTesterButton_Click(object sender, EventArgs e)
+        {
+
+            ControllerTestForm controllerTestForm = new ControllerTestForm();
+            controllerTestForm.Show();
+
+        }
         private void SwitchMonitorButton_Click(object sender, EventArgs e)
         {
             // Get all screens
