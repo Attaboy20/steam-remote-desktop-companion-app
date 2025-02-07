@@ -1,12 +1,18 @@
-﻿namespace MonitorSwitcher
+﻿using SharpDX.XInput;
+
+namespace MonitorSwitcher
 {
-    partial class ControllerTestForm : Form
+    public partial class ControllerTestForm : Form
     {
+
+        
+
+       
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+    
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
